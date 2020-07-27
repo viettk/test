@@ -42,14 +42,12 @@ public class form_nvk extends javax.swing.JFrame {
     }
 
     public static Connection getConnection() {
-        final String url = "jdbc:sqlserver://localhost:1433;databaseName=form_nvk";
+        String url = "jdbc:sqlserver://127.0.0.1:1433;user=sa;password=123;databaseName=form_nvk";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            return (Connection) DriverManager.getConnection(url, "sa", "minh");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(form_nvk.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(form_nvk.class.getName()).log(Level.SEVERE, null, ex);
+            return (Connection) DriverManager.getConnection(url);
+        } catch (Exception e) {
+            
         }
 
         return getConnection();
