@@ -281,7 +281,7 @@ public class form_nvk extends javax.swing.JFrame {
         btndelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Form_Nhân viên kho");
+        setTitle("Nhân viên kho");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Quản Lý Sách Trong Kho", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(102, 51, 255))); // NOI18N
 
@@ -321,6 +321,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.GridLayout(2, 0, 10, 10));
 
         btnadd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/add (1).png"))); // NOI18N
         btnadd.setText("Add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,6 +331,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.add(btnadd);
 
         btnupdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/update.png"))); // NOI18N
         btnupdate.setText("Update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,6 +341,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.add(btnupdate);
 
         btnnew.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/criss-cross.png"))); // NOI18N
         btnnew.setText("Clear");
         btnnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +351,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.add(btnnew);
 
         btndelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btndelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/delete.png"))); // NOI18N
         btndelete.setText("Delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
