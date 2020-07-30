@@ -5,10 +5,11 @@ public class Nhanvien {
     protected String id, name;
     protected int tuoi;
     protected String gt, taik, password, chucvu,hlam;
+    protected double luong;
     public Nhanvien() {
     }
 
-    public Nhanvien(String id, String name, int tuoi, String gt, String taik, String password, String chucvu, String hlam) {
+    public Nhanvien(String id, String name, int tuoi, String gt, String taik, String password, String chucvu, String hlam, double luong) {
         this.id = id;
         this.name = name;
         this.tuoi = tuoi;
@@ -17,39 +18,7 @@ public class Nhanvien {
         this.password = password;
         this.chucvu = chucvu;
         this.hlam = hlam;
-    }
-    
-    
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getGt() {
-        return gt;
-    }
-
-    public String getTaik() {
-        return taik;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getChucvu() {
-        return chucvu;
-    }
-
-    public String getHlam() {
-        return hlam;
-    }
-
-    public int getTuoi() {
-        return tuoi;
+        this.luong = luong;
     }
 
     public void setId(String id) {
@@ -58,6 +27,10 @@ public class Nhanvien {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setTuoi(int tuoi) {
+        this.tuoi = tuoi;
     }
 
     public void setGt(String gt) {
@@ -80,15 +53,52 @@ public class Nhanvien {
         this.hlam = hlam;
     }
 
-    public void setTuoi(int tuoi) {
-        this.tuoi = tuoi;
+    public void setLuong(double luong) {
+        this.luong = luong;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getTuoi() {
+        return tuoi;
+    }
+
+    public String getGt() {
+        return gt;
+    }
+
+    public String getTaik() {
+        return taik;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getChucvu() {
+        return chucvu;
+    }
+
+    public String getHlam() {
+        return hlam;
+    }
+
+    public double getLuong() {
+        return luong;
     }
 
     @Override
     public String toString() {
-        return "Nhanvien{" + "id=" + id + ", name=" + name + ", gt=" + gt + ", taik=" + taik + ", password=" + password + ", chucvu=" + chucvu + ", hlam=" + hlam + ", tuoi=" + tuoi + '}';
+        return "Nhanvien{" + "id=" + id + ", name=" + name + ", tuoi=" + tuoi + ", gt=" + gt + ", taik=" + taik + ", password=" + password + ", chucvu=" + chucvu + ", hlam=" + hlam + ", luong=" + luong + '}';
     }
 
+    
    
     
 }
