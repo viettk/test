@@ -42,7 +42,7 @@ public class form_nvk extends javax.swing.JFrame {
     }
 
     public static Connection getConnection() {
-        String url = "jdbc:sqlserver://127.0.0.1:1433;user=sa;password=123;databaseName=form_nvk";
+        String url = "jdbc:sqlserver://localhost:1433;user=sa;password=minh;databaseName=form_nvk";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             return (Connection) DriverManager.getConnection(url);
@@ -286,7 +286,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Quản Lý Sách Trong Kho", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(102, 51, 255))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Giá");
+        jLabel6.setText("Giá Nhập");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Mã Sách");
@@ -321,6 +321,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.GridLayout(2, 0, 10, 10));
 
         btnadd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnadd.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\JavaApplication33\\JavaApplication33\\icon\\add.png")); // NOI18N
         btnadd.setText("Add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,6 +331,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.add(btnadd);
 
         btnupdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnupdate.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\JavaApplication33\\JavaApplication33\\icon\\update.png")); // NOI18N
         btnupdate.setText("Update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +350,7 @@ public class form_nvk extends javax.swing.JFrame {
         jPanel2.add(btnnew);
 
         btndelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btndelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\JavaApplication33\\JavaApplication33\\icon\\delete.png")); // NOI18N
         btndelete.setText("Delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
