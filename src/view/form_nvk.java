@@ -37,8 +37,8 @@ public class form_nvk extends javax.swing.JFrame {
     public form_nvk() {
         initComponents();
         setLocationRelativeTo(null);
-        LoadData();
-        fillToTable();
+//        LoadData();
+//        fillToTable();
     }
 
     public static Connection getConnection() {
