@@ -8,11 +8,15 @@ package view;
 import java.awt.Color;
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +29,7 @@ import model.book;
  * @author Admin
  */
 public class form_nvk extends javax.swing.JFrame {
- 
+
     /**
      * Creates new form form
      */
@@ -37,8 +41,8 @@ public class form_nvk extends javax.swing.JFrame {
     public form_nvk() {
         initComponents();
         setLocationRelativeTo(null);
-//        LoadData();
-//        fillToTable();
+        LoadData();
+        fillToTable();
     }
 
     public static Connection getConnection() {
@@ -47,14 +51,14 @@ public class form_nvk extends javax.swing.JFrame {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             return (Connection) DriverManager.getConnection(url);
         } catch (Exception e) {
-            
+
         }
 
         return getConnection();
     }
 
     protected void LoadData() {
-        String[] header = {"MASACH", "TENSACH", "THELOAI", "SL", "GIA"};
+        String[] header = {"MASACH", "TENSACH", "THELOAI", "SL", "GIA", "NGAYNHAP"};
         model = new DefaultTableModel(null, header);
 
         try {
@@ -69,7 +73,8 @@ public class form_nvk extends javax.swing.JFrame {
                 String theloai = rs.getString(3);
                 int sl = rs.getInt(4);
                 double gia = rs.getDouble(5);
-                list.add(new book(masach, tensach, theloai, sl, gia));
+                String ngaynhap = rs.getString(6);
+                list.add(new book(masach, tensach, theloai, sl, gia, ngaynhap));
             }
             con.close();
         } catch (SQLException ex) {
@@ -81,7 +86,7 @@ public class form_nvk extends javax.swing.JFrame {
     protected void fillToTable() {
         model.setRowCount(0);
         for (book b : list) {
-            model.addRow(new Object[]{b.getMasach(), b.getTensach(), b.getTheloai(), b.getSl(), b.getGia()});
+            model.addRow(new Object[]{b.getMasach(), b.getTensach(), b.getTheloai(), b.getSl(), b.getGia(), b.getNgaynhap()});
         }
         tblbook.setModel(model);
     }
@@ -93,9 +98,11 @@ public class form_nvk extends javax.swing.JFrame {
             return;
         } else if (CheckInt()) {
             return;
+        } else if (checkDate()) {
+            return;
         }
         Connection con = getConnection();
-        String query = "INSERT INTO sach(MASACH, TENSACH, THELOAI, SL, GIA) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO sach(MASACH, TENSACH, THELOAI, SL, GIA,ngaynhap) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, txtma.getText());
@@ -103,7 +110,12 @@ public class form_nvk extends javax.swing.JFrame {
             ps.setString(3, txttl.getText());
             ps.setString(4, txtsl.getText());
             ps.setString(5, txtgia.getText());
-            ps.executeUpdate();
+            SimpleDateFormat forr = new SimpleDateFormat("yyyy-MM-dd");
+            String nn = txtngaynhap.getText();
+            ps.setString(6,nn);
+            int row  = ps.executeUpdate();
+            LoadData();
+            fillToTable();
         } catch (SQLException ex) {
             Logger.getLogger(form_nvk.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -115,9 +127,11 @@ public class form_nvk extends javax.swing.JFrame {
             return;
         } else if (CheckInt()) {
             return;
+        } else if (checkDate()) {
+            return;
         }
         Connection con = getConnection();
-        String query = "UPDATE sach SET TENSACH=?,THELOAI=?,SL=?,GIA=? WHERE masach=?";
+        String query = "UPDATE sach SET TENSACH=?,THELOAI=?,SL=?,GIA=?, ngaynhap=? WHERE masach=?";
         try {
             PreparedStatement ps = con.prepareStatement(query);
 
@@ -125,37 +139,13 @@ public class form_nvk extends javax.swing.JFrame {
             ps.setString(2, txttl.getText());
             ps.setString(3, txtsl.getText());
             ps.setString(4, txtgia.getText());
-            ps.setString(5, txtma.getText());
+            ps.setString(5, txtngaynhap.getText());
+            ps.setString(6, txtma.getText());
             int row = ps.executeUpdate();
+            LoadData();
+            fillToTable();
         } catch (SQLException ex) {
             Logger.getLogger(form_nvk.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    protected void DeleteBook() {
-        try {
-            int hoi = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa sách: " + txtma.getText() + "?");
-            if (hoi == JOptionPane.YES_OPTION) {
-                Connection con = getConnection();
-                String query = "DELETE FROM sach WHERE masach=?";
-
-                PreparedStatement ps = con.prepareStatement(query);
-
-                ps.setString(1, txtma.getText());
-                int row = ps.executeUpdate();
-                LoadData();
-                fillToTable();
-                ClearForm();
-                if (row == 0) {
-                    lbltb.setText("Xóa Thất Bại");
-                } else {
-                    lbltb.setText("Xóa Thành Công");
-                }
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Có  Bug");
         }
     }
 
@@ -166,6 +156,7 @@ public class form_nvk extends javax.swing.JFrame {
         txttl.setText(b.getTheloai());
         txtsl.setText(String.valueOf(b.getSl()));
         txtgia.setText(String.valueOf(b.getGia()));
+        txtngaynhap.setText(b.getNgaynhap());
 
     }
 
@@ -176,6 +167,7 @@ public class form_nvk extends javax.swing.JFrame {
         txtsl.setText("");
         txtgia.setText("");
         txtma.setEnabled(true);
+        txtngaynhap.setText("");
         tblbook.removeRowSelectionInterval(index, index);
     }
 
@@ -251,6 +243,23 @@ public class form_nvk extends javax.swing.JFrame {
         return false;
     }
 
+    boolean checkDate()  {
+
+         try {
+            
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String ns = txtngaynhap.getText();
+            Date date = format.parse(ns);
+            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đúng định dạng yyyy-MM-dd");
+            
+            return true;
+        }
+        return false;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -279,6 +288,8 @@ public class form_nvk extends javax.swing.JFrame {
         btnnew = new javax.swing.JButton();
         btnadd = new javax.swing.JButton();
         btnxuat = new javax.swing.JButton();
+        txtngaynhap = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form_Nhân viên kho");
@@ -305,7 +316,7 @@ public class form_nvk extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã sách", "Tên sách", "Thể loại", "Số lượng", "Giá nhập", "Ngày nhập"
             }
         ));
         tblbook.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -372,47 +383,52 @@ public class form_nvk extends javax.swing.JFrame {
         btnxuat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\printer.png")); // NOI18N
         btnxuat.setText("Xuất Phiếu Nhập");
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Ngày Nhập");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(lbltb, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnxuat)
-                .addGap(202, 202, 202))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtma, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(txttl, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtsl, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtgia, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtma, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txttl, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtsl, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtgia, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtngaynhap, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                        .addComponent(lbltb, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
+                        .addComponent(btnxuat)
+                        .addGap(202, 202, 202))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,9 +459,13 @@ public class form_nvk extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(txtgia, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(txtngaynhap, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106)
+                        .addGap(68, 68, 68)
                         .addComponent(lbltb, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -481,18 +501,20 @@ public class form_nvk extends javax.swing.JFrame {
     }//GEN-LAST:event_tblbookMouseClicked
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        // TODO add your handling code here:
+        
+            // TODO add your handling code here:
 
-        AddBook();
-        LoadData();
-        fillToTable();
+            AddBook();
+            
+        
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-        // TODO add your handling code here:
-        UpdateBook();
-        LoadData();
-        fillToTable();
+        
+            // TODO add your handling code here:
+            UpdateBook();
+            
+        
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
@@ -542,6 +564,7 @@ public class form_nvk extends javax.swing.JFrame {
     private javax.swing.JButton btnupdate;
     private javax.swing.JButton btnxuat;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -553,6 +576,7 @@ public class form_nvk extends javax.swing.JFrame {
     private javax.swing.JTable tblbook;
     private javax.swing.JTextField txtgia;
     private javax.swing.JTextField txtma;
+    private javax.swing.JTextField txtngaynhap;
     private javax.swing.JTextField txtsl;
     private javax.swing.JTextField txtten;
     private javax.swing.JTextField txttl;

@@ -10,20 +10,24 @@ package model;
  * @author Admin
  */
 public class book {
-    String masach, tensach, theloai;
+    String masach, tensach, theloai, ngaynhap;
     int sl;
     double gia;
 
     public book() {
     }
 
-    public book(String masach, String tensach, String theloai, int sl, double gia) {
+    public book(String masach, String tensach, String theloai, int sl, double gia, String ngaynhap) {
         this.masach = masach;
         this.tensach = tensach;
         this.theloai = theloai;
+        
         this.sl = sl;
         this.gia = gia;
+        this.ngaynhap = ngaynhap;
     }
+    
+    
 
     public String getMasach() {
         return masach;
@@ -49,6 +53,14 @@ public class book {
         this.theloai = theloai;
     }
 
+    public String getNgaynhap() {
+        return ngaynhap;
+    }
+
+    public void setNgaynhap(String ngaynhap) {
+        this.ngaynhap = ngaynhap;
+    }
+
     public int getSl() {
         return sl;
     }
@@ -64,7 +76,7 @@ public class book {
     public void setGia(double gia) {
         this.gia = gia;
     }
-    
+
     
     
 }

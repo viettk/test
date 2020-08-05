@@ -18,6 +18,8 @@ public class new_demo extends javax.swing.JFrame {
         initComponents();
         
         txtmatk.setEditable(false);
+        txtmatk2.setEditable(false);
+        txtmatk3.setEditable(false);
         txtmapm.setEditable(false);
         txtmapm2.setEditable(false);
     }
@@ -88,7 +90,7 @@ public class new_demo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblid = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        txtname1 = new javax.swing.JTextField();
+        txtmatk3 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -116,7 +118,7 @@ public class new_demo extends javax.swing.JFrame {
         rdothree = new javax.swing.JRadioButton();
         rdosix = new javax.swing.JRadioButton();
         btnup = new javax.swing.JButton();
-        jTextField22 = new javax.swing.JTextField();
+        txtmatk2 = new javax.swing.JTextField();
         jTextField23 = new javax.swing.JTextField();
         jTextField24 = new javax.swing.JTextField();
         lblgh1thang = new javax.swing.JLabel();
@@ -326,6 +328,7 @@ public class new_demo extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\person.png")); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Nhân Viên");
 
         javax.swing.GroupLayout leftLayout = new javax.swing.GroupLayout(left);
@@ -396,6 +399,9 @@ public class new_demo extends javax.swing.JFrame {
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        txtmatk.setBackground(new java.awt.Color(102, 102, 102));
+        txtmatk.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -475,9 +481,23 @@ public class new_demo extends javax.swing.JFrame {
         rdofemale.setForeground(new java.awt.Color(0, 0, 0));
         rdofemale.setText("Nữ");
 
+        txtid7.setBackground(new java.awt.Color(102, 102, 102));
+        txtid7.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtid6.setBackground(new java.awt.Color(102, 102, 102));
+        txtid6.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtdc.setBackground(new java.awt.Color(102, 102, 102));
         txtdc.setColumns(20);
+        txtdc.setForeground(new java.awt.Color(255, 255, 255));
         txtdc.setRows(5);
         jScrollPane1.setViewportView(txtdc);
+
+        txtid5.setBackground(new java.awt.Color(102, 102, 102));
+        txtid5.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtid.setBackground(new java.awt.Color(102, 102, 102));
+        txtid.setForeground(new java.awt.Color(255, 255, 255));
 
         lbl6thang.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbl6thang.setForeground(new java.awt.Color(204, 0, 0));
@@ -637,6 +657,9 @@ public class new_demo extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.white));
         jPanel3.setForeground(new java.awt.Color(60, 63, 65));
 
+        txtid1.setBackground(new java.awt.Color(255, 255, 255));
+        txtid1.setForeground(new java.awt.Color(0, 0, 0));
+
         btnsearch.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnsearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\search.png")); // NOI18N
         btnsearch.setText("Tìm kiếm");
@@ -684,6 +707,9 @@ public class new_demo extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Họ tên");
 
+        txtmatk3.setBackground(new java.awt.Color(255, 255, 255));
+        txtmatk3.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Số điện thoại");
@@ -721,6 +747,21 @@ public class new_demo extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Email");
 
+        txtname3.setBackground(new java.awt.Color(255, 255, 255));
+        txtname3.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtname4.setBackground(new java.awt.Color(255, 255, 255));
+        txtname4.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtname5.setBackground(new java.awt.Color(255, 255, 255));
+        txtname5.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtname6.setBackground(new java.awt.Color(255, 255, 255));
+        txtname6.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtname7.setBackground(new java.awt.Color(255, 255, 255));
+        txtname7.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -743,7 +784,7 @@ public class new_demo extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtname3, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtname1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtmatk3, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtname4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtname5, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtname6, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -763,7 +804,7 @@ public class new_demo extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtname1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmatk3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
@@ -822,6 +863,7 @@ public class new_demo extends javax.swing.JFrame {
         right.add(timtk, "card4");
 
         giahantk.setBackground(new java.awt.Color(102, 102, 102));
+        giahantk.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -832,6 +874,7 @@ public class new_demo extends javax.swing.JFrame {
         jPanel5.setForeground(new java.awt.Color(60, 63, 65));
 
         txtseach.setBackground(new java.awt.Color(102, 102, 102));
+        txtseach.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\search.png")); // NOI18N
@@ -911,6 +954,15 @@ public class new_demo extends javax.swing.JFrame {
         btnup.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\passed.png")); // NOI18N
         btnup.setText("Gia hạn");
 
+        txtmatk2.setBackground(new java.awt.Color(102, 102, 102));
+        txtmatk2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField23.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField23.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField24.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField24.setForeground(new java.awt.Color(255, 255, 255));
+
         lblgh1thang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblgh1thang.setForeground(new java.awt.Color(204, 0, 0));
 
@@ -935,7 +987,7 @@ public class new_demo extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnup)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField22)
+                        .addComponent(txtmatk2)
                         .addComponent(jTextField23)
                         .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel6Layout.createSequentialGroup()
@@ -960,7 +1012,7 @@ public class new_demo extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmatk2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
@@ -1056,6 +1108,9 @@ public class new_demo extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+
         jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\search.png")); // NOI18N
         jButton5.setText("Search");
 
@@ -1141,7 +1196,7 @@ public class new_demo extends javax.swing.JFrame {
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel36.setText("Mã người mượn");
+        jLabel36.setText("Mã tài khoản");
 
         jLabel31.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
@@ -1162,6 +1217,27 @@ public class new_demo extends javax.swing.JFrame {
         btnsave.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnsave.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\new.png")); // NOI18N
         btnsave.setText("Thêm mới");
+
+        jTextField2.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtmapm.setBackground(new java.awt.Color(102, 102, 102));
+        txtmapm.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField4.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField5.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField6.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField7.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField8.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1312,7 +1388,7 @@ public class new_demo extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("Mã người mượn");
+        jLabel39.setText("Mã tài khoản");
 
         jLabel40.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
@@ -1431,7 +1507,7 @@ public class new_demo extends javax.swing.JFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4))
-                .addGap(0, 69, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timpmLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
@@ -1462,6 +1538,9 @@ public class new_demo extends javax.swing.JFrame {
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel14.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtsearch3.setBackground(new java.awt.Color(102, 102, 102));
+        txtsearch3.setForeground(new java.awt.Color(255, 255, 255));
 
         btnseach3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnseach3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\search.png")); // NOI18N
@@ -1494,7 +1573,7 @@ public class new_demo extends javax.swing.JFrame {
 
         jLabel51.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel51.setText("Tên hội viên");
+        jLabel51.setText("Họ tên ");
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(0, 0, 0));
@@ -1519,6 +1598,24 @@ public class new_demo extends javax.swing.JFrame {
         btnok.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnok.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\submit.png")); // NOI18N
         btnok.setText("Xác nhận");
+
+        jTextField16.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField16.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField17.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField17.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField18.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField18.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField19.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField19.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField20.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField20.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField21.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField21.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1628,6 +1725,9 @@ public class new_demo extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.white, null));
+
+        txtsearch2.setBackground(new java.awt.Color(102, 102, 102));
+        txtsearch2.setForeground(new java.awt.Color(255, 255, 255));
 
         btnseach2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnseach2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Compressed\\test-master\\test-master\\new_icon\\search.png")); // NOI18N
@@ -2149,7 +2249,6 @@ public class new_demo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField4;
@@ -2201,7 +2300,8 @@ public class new_demo extends javax.swing.JFrame {
     private javax.swing.JTextField txtmapm;
     private javax.swing.JTextField txtmapm2;
     private javax.swing.JTextField txtmatk;
-    private javax.swing.JTextField txtname1;
+    private javax.swing.JTextField txtmatk2;
+    private javax.swing.JTextField txtmatk3;
     private javax.swing.JTextField txtname3;
     private javax.swing.JTextField txtname4;
     private javax.swing.JTextField txtname5;
